@@ -1,0 +1,15 @@
+--- AULA DE BANCO DE DADOS
+
+  --SELECT first_name || ' ' ||last_name AS nome_completo, 
+  --age * 2  AS dobro_da_idade,
+  -- AS país
+
+
+SELECT first_name || ' ' || last_name || ' , ' || ' do país ' || country as exercícios
+
+FROM Customers
+
+WHERE first_name = 'John'
+--WHERE first_name = 'John' OR age < 25
+
+;
