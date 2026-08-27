@@ -1,0 +1,39 @@
+--AULA BANCO DE DADOS - 26.08
+
+SELECT first_name || ' ' || last_name || ' , ' || ' do país ' || country as exercícios
+
+FROM Customers;
+
+
+--Inserindo Linhas
+
+--INSERT INTO Customers
+
+--(first_name, last_name, country)
+
+--VALUES
+
+--('Gustavo', 'Jesus', 'BRA'), ('Renato' , 'Souza Silva', 'CAN') --Identificando as Colunas para inserir linhas novas
+
+--(6, 'Gustavo', 'Jesus', 19, 'BRA') --Utilizando sem indicar a coluna para inserir a linha
+
+--ATUALIZANDO INFORMAÇÕES DO BANCO DE DADOS COM UPDATE
+
+--UPDATE Customers
+--SET country = 'JPN'
+--WHERE customer_id = 6
+
+--Deletando informações
+--DELETE FROM Customers
+--WHERE country = 'UK'
+
+-- EXERCÍCIO
+--UPDATE Customers 
+--SET age = 20
+--WHERE customer_id = 7 or customer_id = 8
+
+--EXERCÍCIO
+UPDATE Customers 
+SET first_name = 'Guilherme', last_name = 'Silva' --PADRÃO DO SQL PARA CONSEGUIR SETAR MAIS DE UMA COLUNA
+WHERE country = 'USA' AND age <= 25
+;
