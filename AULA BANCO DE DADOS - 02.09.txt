@@ -1,0 +1,47 @@
+AULA BANCO DE DADOS - 02.09
+
+--JOIN NA PRÁTICA
+SELECT first_name, last_name, age, item
+FROM Customers
+JOIN Orders
+ON Orders.customer_id = Customers.customer_id --O '.' SIGNIFICA ESSA TABELA NESTA COLUNA 
+;
+
+--EXERCÍCIO: MOSTRE O ÚLTIMO NOME DAS PESSOAS QUE COMPRARAM TECLADO E MOSTRE QUEM SÃO
+SELECT last_name
+FROM Customers
+JOIN Orders
+ON Orders.customer_id = Customers.customer_id --O '.' SIGNIFICA ESSA TABELA NESTA COLUNA || ESSE É O JEITO QUE AS TABELAS RELACIONAM 
+WHERE item = 'Keyboard'
+;
+
+--EXERCÍCIO: MOSTRE O NOME É A IDADE DOS CLIENTES QUE FIZERAM UMA COMPRA GASTANDO 300 OU MENOS
+SELECT first_name, age
+FROM Customers
+JOIN Orders
+ON Orders.customer_id = Customers.customer_id --O '.' SIGNIFICA ESSA TABELA NESTA COLUNA || ESSE É O JEITO QUE AS TABELAS RELACIONAM 
+WHERE Orders.amount <= 300
+;
+
+--EXERCÍCIO: MOSTRE O NOME E O ITEM DAQUELAS PESSOAS QUE ESTÃO COM A ENTREGA DO PEDIDO PENDENTE
+SELECT first_name, item
+FROM Customers
+
+JOIN Orders
+ON Orders.customer_id = Customers.customer_id  --O '.' SIGNIFICA ESSA TABELA NESTA COLUNA || ESSE É O JEITO QUE AS TABELAS RELACIONAM
+
+JOIN Shippings
+ON Customers.customer_id = Shippings.customer
+WHERE Shippings.status = 'Pending'
+;
+
+SELECT 'Olá SR(A)' || last_name || ', vimos que você não realizou compras ainda! Posso te mandar nosso catálogo?' AS mensagem
+FROM Customers
+
+LEFT JOIN Orders
+ON Orders.customer_id = Customers.customer_id
+
+WHERE order_id is NULL
+;
+
+
