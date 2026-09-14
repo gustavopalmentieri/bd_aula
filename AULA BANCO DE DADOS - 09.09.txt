@@ -143,3 +143,37 @@ FROM Shippings
 WHERE status = 'Pending';
 
 
+-- EXERCÍCIO 03 - IDADE DO CLIENTE MAIS VELHO COM A ENTREGA PENDENTE
+
+SELECT max(age) AS idade, status
+
+FROM Customers
+
+JOIN Shippings
+
+ON Customers.customer_id = Shippings.customer
+
+WHERE status = 'Pending'
+;
+
+
+-- EXERCÍCIO 04 - SOMA DOS VALORES DOS PEDIDOS (FATURAMENTO TOTAL)
+
+SELECT SUM(amount) AS faturamento_total
+
+FROM Orders;
+
+
+-- EXERCÍCIO 05 - FATURAMENTO POR STATUS DE ENTREGA
+
+SELECT status, SUM(amount) AS faturamento_status
+
+FROM Shippings
+
+JOIN Orders
+
+ON Shippings.customer = Orders.customer_id
+
+GROUP BY status
+;
+
